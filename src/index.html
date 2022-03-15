@@ -11,12 +11,15 @@
       rel="stylesheet"
     />
     <link href="input.css" rel="stylesheet" />
-    <script src="../dist/player.js" defer></script>
+    <script src="./player.ts" defer></script>
     <title>BAND</title>
   </head>
   <body>
     <section class="h-screen w-screen bg-bg-color">
       <p class="text-text-color">our new app</p>
+      <audio id="audio">
+        <source id="audioSource" src="assets/01_Low_Fi.mp3" type="audio/mpeg" />
+      </audio>
       <div id="playerwrapper" class="flex bg-bg-color opacity-90 h-1/8">
         <input
           id="Seekbar"
@@ -32,7 +35,7 @@
             <img src="./assets/bi_skip-back.svg" />
           </button>
           <!-- PLAY / PAUSE -->
-          <button id="play" class="flex bg-text-color h-8 w-8">
+          <button id="play" class="flex">
             <img src="./assets/Vector.svg" />
             <img src="./assets/carbon_pause-filled.svg" class="hidden" />
           </button>
