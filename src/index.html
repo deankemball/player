@@ -17,14 +17,14 @@
   <body>
     <section class="h-screen w-screen bg-bg-color">
       <p class="text-text-color">our new app</p>
-      <audio id="audio">
-        <source
-          id="audioSource"
-          src="./assets/01_Low_Fi.mp3"
-          type="audio/mpeg"
-        />
-      </audio>
       <div id="playerwrapper" class="flex bg-bg-color opacity-90 h-1/8">
+        <audio id="audio">
+          <source
+            id="audioSource"
+            src="./assets/01_Low_Fi.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
         <input
           id="Seekbar"
           type="range"
@@ -34,7 +34,7 @@
           disabled
           class="hidden"
         />
-        <div class="flex w-full justify-evenly items-center align-bottom">
+        <div class="flex w-full justify-evenly items-center">
           <button id="skip-back" class="flex" disabled>
             <img src="./assets/bi_skip-back.svg" />
           </button>
@@ -43,7 +43,7 @@
             <img src="./assets/Vector.svg" />
             <img src="./assets/carbon_pause-filled.svg" class="hidden" />
           </button>
-          <button id="skip-forward" class="flex" disabled>
+          <button id="skip-forward" class="flex">
             <img src="./assets/bi_skip-forward.svg" />
           </button>
         </div>

@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
-  const audioFile = "assets/01_Low_Fi.mp3";
+  const audioFile = "assets/02 (Varoom!)";
   // var audio = new Audio(audioFile);
   const audio = document.getElementById("audio") as HTMLAudioElement;
   const audioSource = document.getElementById(
     "audioSource"
   ) as HTMLAudioElement;
 
-  audioSource.src = audioFile;
+  // audioSource.src = audioFile;
   var PlayButton = document.getElementById("play") as HTMLElement;
   var SkipBack = document.getElementById("skip-back") as HTMLElement;
   var SkipForward = document.getElementById("skip-forward") as HTMLElement;
@@ -14,6 +14,14 @@ window.addEventListener("load", () => {
   // Make Playbutton work
 
   PlayButton.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  SkipForward.addEventListener("click", () => {
     let audioSource = document.getElementById(
       "audioSource"
     ) as HTMLAudioElement;
