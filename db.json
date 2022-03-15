@@ -1,0 +1,51 @@
+{
+    {
+      "id": "1",
+      "artist": "Perry's Midnight Firemen",
+      "album": "Wasser",
+      "genre": "Rock"
+   
+   "url": "" },
+    {
+      "id": "2",
+      "artist": "Flight of the Blonde Ostriches",
+      "album": "Hooray",
+      "genre": "Hip Hop",
+      "url": ""
+    },
+    {
+        "id": "3",
+        "artist": "France Panic",
+        "album": "Joystickhead",
+        "genre": "Techno",
+
+"url": ""    },
+    {
+        "id": "4",
+        "artist": "Megamap",
+        "album": "The Crazy Service",
+        "genre": "Metal",
+ 
+ "url": ""   },
+    {
+        "id": "5",
+        "artist": "new band",
+        "album": "albums",
+        "genre": "hip hop",
+        "url": ""
+    },
+    {
+        "id": "6",
+        "artist": "new band",
+        "album": "albums",
+        "genre": "hip hop",
+        "url": ""
+    },
+    {
+        "id": "7",
+        "artist": "new band",
+        "album": "albums",
+        "genre": "hip hop",
+        "url": ""
+    },
+  }
