@@ -21,8 +21,13 @@
       text-shadow: none;
     }
     .album {
-        min-width: 80vw;
-        min-height: 80vw;
+        min-width: 74vw;
+        min-height: 74vw;
+    }
+    .collection {
+        min-width: 40vw;
+        min-height: 40vw;
+        align-self: start;
     }
   }
 
