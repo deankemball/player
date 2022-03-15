@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="input.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="input.css" rel="stylesheet" />
+    <script src="./player.ts" defer></script>
     <title>BAND</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="h-screen w-screen bg-bg-color">
-        <p class="text-text-color">our new app</p>
+      <p class="text-text-color">our new app</p>
+      <div id="playerwrapper" class="flex bg-bg-color opacity-90 h-1/6">
+        <input
+          id="Seekbar"
+          type="range"
+          min="0"
+          value="0"
+          step="1"
+          disabled
+          class="hidden"
+        />
+        <div class="flex w-full justify-evenly items-center align-bottom">
+          <button id="skip-back" class="flex" disabled>
+            <img src="./assets/bi_skip-back.svg" />
+          </button>
+          <!-- PLAY / PAUSE -->
+          <button id="play" class="flex" disabled>
+            <img src="./assets/Vector.svg" id="get-button" onclick="" />
+            <img src="./assets/carbon_pause-filled.svg" class="hidden" />
+          </button>
+          <button id="skip-forward" class="flex" disabled>
+            <img src="./assets/bi_skip-forward.svg" />
+          </button>
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>
