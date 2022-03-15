@@ -1,51 +1,59 @@
-{
-    {
-      "id": "1",
-      "artist": "Perry's Midnight Firemen",
-      "album": "Wasser",
-      "genre": "Rock"
-   
-   "url": "" },
-    {
-      "id": "2",
-      "artist": "Flight of the Blonde Ostriches",
-      "album": "Hooray",
-      "genre": "Hip Hop",
-      "url": ""
-    },
-    {
-        "id": "3",
-        "artist": "France Panic",
-        "album": "Joystickhead",
-        "genre": "Techno",
+[
+  {
+    "id": "1",
+    "artist": "Perrys Midnight Firemen",
+    "title": "Firefighter Fun",
+    "album": "Wasser",
+    "genre": "Rock",
+    "url": ""
+  },
 
-"url": ""    },
-    {
-        "id": "4",
-        "artist": "Megamap",
-        "album": "The Crazy Service",
-        "genre": "Metal",
- 
- "url": ""   },
-    {
-        "id": "5",
-        "artist": "new band",
-        "album": "albums",
-        "genre": "hip hop",
-        "url": ""
-    },
-    {
-        "id": "6",
-        "artist": "new band",
-        "album": "albums",
-        "genre": "hip hop",
-        "url": ""
-    },
-    {
-        "id": "7",
-        "artist": "new band",
-        "album": "albums",
-        "genre": "hip hop",
-        "url": ""
-    },
+  {
+    "id": "2",
+    "artist": "Flight of the Blonde Ostriches",
+    "album": "Hooray",
+    "title": "Trouble in the hood",
+    "genre": "Hip Hop",
+    "url": ""
+  },
+  {
+    "id": "3",
+    "artist": "France Panic",
+    "album": "Joystickhead",
+    "title": "All night long",
+    "genre": "Techno",
+    "url": ""
+  },
+  {
+    "id": "4",
+    "artist": "Megamap",
+    "album": "The Crazy Service",
+    "title": "No service today",
+    "genre": "Metal",
+    "url": ""
+  },
+  {
+    "id": "5",
+    "artist": "Franz Wollang",
+    "album": "Hangover",
+    "title": "Singing at the Disco",
+    "genre": "Disco",
+    "url": ""
+  },
+  {
+    "id": "6",
+    "artist": "Dan McAtee",
+    "album": "Hotpink",
+    "title": "Hotpink is the best",
+    "genre": "Metal",
+    "url": ""
+  },
+  {
+    "id": "7",
+    "artist": "All the Others",
+    "album": "Hackathon 3000",
+    "title": "Devhaus",
+    "genre": "Punk",
+    "url": ""
   }
+]
