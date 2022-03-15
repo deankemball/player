@@ -13,7 +13,8 @@ window.addEventListener("load", () => {
   var PlayButton = document.getElementById("play") as HTMLElement;
   var SkipBack = document.getElementById("skip-back") as HTMLElement;
   var SkipForward = document.getElementById("skip-forward") as HTMLElement;
-
+  var PauseIcon = document.getElementById("pause-icon") as HTMLElement;
+  var PlayIcon = document.getElementById("play-icon") as HTMLElement;
   // Make Playbutton work
 
   PlayButton.addEventListener("click", () => {
@@ -21,8 +22,12 @@ window.addEventListener("load", () => {
 
     if (audio.paused) {
       audio.play();
+      PlayIcon.classList.toggle("hidden");
+      PauseIcon.classList.remove("hidden");
     } else {
       audio.pause();
+      PlayIcon.classList.remove("hidden");
+      PauseIcon.classList.toggle("hidden");
     }
   });
 
@@ -50,14 +55,6 @@ window.addEventListener("load", () => {
     audio.load();
     audio.play();
   });
-
-  // PlayButton.onclick = () => {
-  //   if (audio.paused) {
-  //     audio.play();
-  //   } else {
-  //     audio.pause();
-  //   }
-  // };
 
   // audio.onplay = () => {
   //   PlayButton.innerHTML; continue here
