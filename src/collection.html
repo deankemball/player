@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="input.css" rel="stylesheet">
+    <title>BAND</title>
+</head>
+<body class="h-screen w-screen bg-bg-color text-text-color font-ibm p-6 flex flex-col gap-6">
+    <div class="fixed top-0 left-0 right-0 pt-4 px-16 z-10 h-16 bg-header-color">
+        <header id="header" class="flex flex-row justify-between z-10 items-baseline">
+            <a href="index.html"><p class="cursor-pointer text-2xl font-bold w-1/2">BRAND</p></a>
+            <a href="collection.html"><p>collection</p></a>
+            <p id="search" class="cursor-pointer">search</p>
+        </header>
+    </div>
+    <section id="feed" class="absolute left-1/2 -translate-x-1/2 translate-y-12 overflow-y-scroll">
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex flex-col items-center">
+                <a href="albums.html">
+                    <div class="album shadow-md flex items-center justify-center bg-gradient-to-br from-accent-one to-accent-two cursor-pointer">
+                        <p class="text-2xl text-shadow">albums</p>
+                    </div>
+                </a>
+                <div class="flex flex-col w-full">
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="playlists.html">
+                    <div class="album shadow-md flex items-center justify-center bg-gradient-to-br from-accent-one to-accent-two cursor-pointer">
+                        <p class="text-2xl text-shadow">playlists</p>
+                    </div>
+                </a>
+                <div class="flex flex-col w-full">
+                </div>
+        </div>
+    </section>
+    <div class="fixed bottom-0 left-0 right-0 px-16 h-16 bg-header-color z-10">
+        <footer class="flex flex-row justify-around pt-4 z-10">
+          <div id="playerwrapper" class="flex w-full justify-evenly items-center">
+              <audio id="audio">
+                <source
+                  id="audioSource"
+                  src="./assets/02 (Varoom!).mp3"
+                  type="audio/mpeg"
+                />
+              </audio>
+              <input
+                id="Seekbar"
+                type="range"
+                min="0"
+                value="0"
+                step="1"
+                disabled
+                class="hidden"
+              />
+                <button id="skip-back" class="flex">
+                  <img src="./assets/bi_skip-back.svg" />
+                </button>
+                <!-- PLAY / PAUSE -->
+                <button id="play" class="flex">
+                  <div id="switchButtons">
+                    <img src="./assets/Vector.svg" />
+                    <img src="./assets/carbon_pause-filled.svg" class="hidden" />
+                  </div>
+                </button>
+                <button id="skip-forward" class="flex">
+                  <img src="./assets/bi_skip-forward.svg" />
+                </button>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>

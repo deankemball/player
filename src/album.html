@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="input.css" rel="stylesheet">
+    <title>BAND</title>
+</head>
+<body class="h-screen w-screen bg-bg-color text-text-color font-ibm p-6 flex flex-col gap-6">
+    <div class="fixed top-0 left-0 right-0 pt-4 px-16 z-10 h-16 bg-header-color">
+            <header id="header" class="flex flex-row justify-between z-10 items-baseline">
+                <a href="index.html"><p class="cursor-pointer text-2xl font-bold w-1/2">BRAND</p></a>
+                <a href="collection.html"><p>collection</p></a>
+                <p id="search" class="cursor-pointer">search</p>
+            </header>
+        </div>
+        <section id="feed" class="absolute left-1/2 -translate-x-1/2 translate-y-12 pb-16 overflow-y-scroll">
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex flex-col items-center">
+                <div id="albumart" class="album shadow-md bg-gradient-to-br from-accent-one to-accent-two"></div>
+                <div id="albumartist" class="flex flex-col w-full mt-3 mb-6">
+                    <p>Album Title</p>
+                    <p>Artist Name</p>
+                </div>
+                <div id="tracklist" class="flex flex-col w-full space-y-3 pb-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p>Track Name</p><p class="text-xs">Artist Name</p>
+                        </div>
+                        <p class="self-start">03:16</p>
+                    </div>
+                    <div id="about" class="self-end w-3/4 italic text-right">
+                        <p>This album is a big project by a bunch of rad ass friends who wanted to share with everyone how rad they are. Listen up and come dance with us.</p>
+                    </div>
+                    <div id="credits">
+                        <p><span class="text-xs">Produced by </span>Some Guy</p>
+                        <p><span class="text-xs">Written by </span>Some Gal</p>
+                        <p><span class="text-xs">Mixed by </span>Studio Blah</p>
+                        <p><span class="text-xs">Artwork by </span>Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="fixed bottom-0 left-0 right-0 px-16 h-16 bg-header-color z-10">
+        <footer class="flex flex-row justify-around pt-4 z-10">
+          <div id="playerwrapper" class="flex w-full justify-evenly items-center">
+              <audio id="audio">
+                <source
+                  id="audioSource"
+                  src="./assets/02 (Varoom!).mp3"
+                  type="audio/mpeg"
+                />
+              </audio>
+              <input
+                id="Seekbar"
+                type="range"
+                min="0"
+                value="0"
+                step="1"
+                disabled
+                class="hidden"
+              />
+                <button id="skip-back" class="flex">
+                  <img src="./assets/bi_skip-back.svg" />
+                </button>
+                <!-- PLAY / PAUSE -->
+                <button id="play" class="flex">
+                  <div id="switchButtons">
+                    <img src="./assets/Vector.svg" />
+                    <img src="./assets/carbon_pause-filled.svg" class="hidden" />
+                  </div>
+                </button>
+                <button id="skip-forward" class="flex">
+                  <img src="./assets/bi_skip-forward.svg" />
+                </button>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
