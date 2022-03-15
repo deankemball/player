@@ -7,10 +7,18 @@ window.addEventListener("load", () => {
   // Make Playbutton work
 
   PlayButton.onclick = () => {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+    audio.play();
   };
+
+  // PlayButton.onclick = () => {
+  //   if (audio.paused) {
+  //     audio.play();
+  //   } else {
+  //     audio.pause();
+  //   }
+  // };
+
+  // audio.onplay = () => {
+  //   PlayButton.innerHTML; // continue here
+  // };
 });
