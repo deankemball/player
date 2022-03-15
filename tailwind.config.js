@@ -8,12 +8,13 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       'bg-color': '#26292C',
+      'header-color': 'rgba(34, 41, 44, 0.5)',
       'text-color': '#EDF5FC',
       'accent-one': '#A48DFF',
       'accent-two': '#AEE2CD',
     },
     fontFamily: {
-      'ibm': ['IBM Plex Sans', 'regular', 'medium', 'semibold', 'bold']
+      'ibm': ['IBM Plex Sans', 'regular', 'medium', 'semibold', 'bold', 'italic']
     },
     extend: {
       boxShadow: {
