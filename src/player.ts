@@ -1,12 +1,21 @@
-window.addEventListener("load", () => {
-  const previousSong = "assets/01_Low_Fi"; // just some example for skipping backwards
-  const nextSong = "assets/03 Laisser-Faire.mp3"; // just some example for skipping forward
-  const audio = document.getElementById("audio") as HTMLAudioElement;
-  const audioSource = document.getElementById("audioSource") as HTMLElement;
+import axios from "axios";
+window.addEventListener("load", async (id) => {
+  let trackID: number;
+  try {
+    trackID = await axios.get(`http://localhost:3000/songs/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
 
-  // let track_id = simons-thingy.key?
+  let currentTrack = document.createElement("audio") as HTMLAudioElement;
   let isPlaying = false;
-  let currentTrack = document.createElement("audio");
+  let nextTrack = trackID + 1;
+  let prevTrack = trackID - 1;
+
+  function loadTrack(trackID) {
+    currentTrack.src = trackID;
+    currentTrack.load();
+  }
 
   // audioSource.src = audioFile;
   var PlayButton = document.getElementById("play") as HTMLElement;
