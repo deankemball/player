@@ -1,65 +1,108 @@
-window.addEventListener("load", () => {
-  const previousSong = "assets/02 (Varoom!)"; // just some example for skipping backwards
-  const nextSong = "assets/03 Laisser-Faire.mp3"; // just some example for skipping forward
-  // var audio = new Audio("./assets/02 (Varoom!).mp3");
-  // audio.type = "audio/mp3";
-  // audio.load();
-  const audio = document.getElementById("audio") as HTMLAudioElement;
-  const audioSource = document.getElementById(
-    "audioSource"
-  ) as HTMLAudioElement;
+import axios from "axios";
+import _ from "lodash";
 
-  // audioSource.src = audioFile;
-  var PlayButton = document.getElementById("play") as HTMLElement;
-  var SkipBack = document.getElementById("skip-back") as HTMLElement;
-  var SkipForward = document.getElementById("skip-forward") as HTMLElement;
+window.addEventListener("load", async () => {
+  let tracks;
+  try {
+    tracks = await axios
+      .get(`http://localhost:3000/songs`)
+      .then((res) => res.data);
+  } catch (error) {
+    console.error(error);
+  }
 
-  // Make Playbutton work
+  console.log(tracks);
+  type Track = {
+    id: number;
+    artist: string;
+    album: string;
+    dirPath: string;
+    coverPath: string;
+  };
 
-  PlayButton.addEventListener("click", () => {
-    // audio.play();
+  // access object and get id + path
+  let trackID: number;
+  let Path = tracks.dirPath;
+  let nextTrack: number = trackID + 1;
+  let prevTrack: number = trackID - 1;
 
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+  // grabbing elements
+  const PlayButton = document.getElementById("play") as HTMLElement;
+  const SkipBack = document.getElementById("skip-back") as HTMLElement;
+  const SkipForward = document.getElementById("skip-forward") as HTMLElement;
+  const PauseIcon = document.getElementById("pause-icon") as HTMLElement;
+  const PlayIcon = document.getElementById("play-icon") as HTMLElement;
+
+  // basics for "starting" a track
+  let currentTrack = document.createElement("audio") as HTMLAudioElement;
+  let isPlaying = false;
+  let DivClick = document.getElementById(String(trackID)) as HTMLElement; // div you click (like track in tracklist)
+  let DivID: string;
+
+  // get ID by clicking on track/album
+  DivClick.addEventListener("click", () => {
+    DivID = DivClick.getAttribute("id");
+    getTrack(trackID);
+  });
+  async function getTrack(trackID: number) {
+    let Track: Track;
+    try {
+      trackID = Number(DivID);
+      Track = await axios
+        .get(`http://localhost:3000/songs/${trackID}`)
+        .then((res) => res.data);
+    } catch (error) {
+      console.error(error);
     }
-  });
 
-  // Simon probably has to add a way to "move" one song forward
-  SkipForward.addEventListener("click", () => {
-    let audioSource = document.getElementById(
-      "audioSource"
-    ) as HTMLAudioElement;
-    audioSource.src = nextSong;
-    audio.load();
-    audio.play();
-  });
+    async function loadTrack(trackID: number) {
+      await getTrack(trackID);
+      currentTrack.src = Track.dirPath;
+      currentTrack.load();
+      currentTrack.addEventListener("ended", playNext);
+    }
 
-  // Simon probably has to find a way to "move" one song backwards :>
-  SkipBack.addEventListener("click", () => {
-    let audioSource = document.getElementById(
-      "audioSource"
-    ) as HTMLAudioElement;
-    audio.removeChild(audioSource);
-    //@ts-ignore
-    audioSource = document.createElement("source");
-    audioSource.src = previousSong;
-    audioSource.id = "audioSource";
-    audio.appendChild(audioSource);
-    audio.load();
-    audio.play();
-  });
+    // Playbutton
+    PlayButton.addEventListener("click", () => {
+      if (isPlaying) {
+        currentTrack.play();
+        isPlaying = true;
+        PlayIcon.classList.toggle("hidden");
+        PauseIcon.classList.remove("hidden");
+      } else {
+        currentTrack.pause();
+        isPlaying = false;
+        PlayIcon.classList.remove("hidden");
+        PauseIcon.classList.toggle("hidden");
+      }
+    });
 
-  // PlayButton.onclick = () => {
-  //   if (audio.paused) {
-  //     audio.play();
-  //   } else {
-  //     audio.pause();
-  //   }
-  // };
+    // Next track
+    function playNext() {
+      if (trackID < 43) {
+        trackID = nextTrack;
+      } else {
+        trackID = 1;
+      }
+      loadTrack(trackID);
+      currentTrack.play();
+    }
 
-  // audio.onplay = () => {
-  //   PlayButton.innerHTML; continue here
-  //  };
+    // Prev track
+    function playPrev() {
+      trackID = prevTrack;
+      loadTrack(trackID);
+      currentTrack.play();
+    }
+
+    // Skip Forward
+    SkipForward.addEventListener("click", () => {
+      playNext();
+    });
+
+    // Skip Back
+    SkipBack.addEventListener("click", () => {
+      playPrev();
+    });
+  }
 });

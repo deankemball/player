@@ -87,42 +87,64 @@
                     </div>
                 </div>
             </div>
+            <div class="flex justify-between">
+              <div>
+                <p>Track Name</p>
+                <p class="text-xs">Artist Name</p>
+              </div>
+              <p class="self-start">03:16</p>
+            </div>
+            <div id="about" class="self-end w-3/4 italic text-right">
+              <p>
+                This album is a big project by a bunch of rad ass friends who
+                wanted to share with everyone how rad they are. Listen up and
+                come dance with us.
+              </p>
+            </div>
+            <div id="credits">
+              <p><span class="text-xs">Produced by </span>Some Guy</p>
+              <p><span class="text-xs">Written by </span>Some Gal</p>
+              <p><span class="text-xs">Mixed by </span>Studio Blah</p>
+              <p><span class="text-xs">Artwork by </span>Designer</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
     <div class="fixed bottom-0 left-0 right-0 px-16 h-16 bg-header-color z-10">
-        <footer class="flex flex-row justify-around pt-4 z-10">
-          <div id="playerwrapper" class="flex w-full justify-evenly items-center">
-              <audio id="audio">
-                <source
-                  id="audioSource"
-                  src="./assets/02 (Varoom!).mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-              <input
-                id="Seekbar"
-                type="range"
-                min="0"
-                value="0"
-                step="1"
-                disabled
-                class="hidden"
-              />
-                <button id="skip-back" class="flex">
-                  <img src="./assets/bi_skip-back.svg" />
-                </button>
-                <!-- PLAY / PAUSE -->
-                <button id="play" class="flex">
-                  <div id="switchButtons">
-                    <img src="./assets/Vector.svg" />
-                    <img src="./assets/carbon_pause-filled.svg" class="hidden" />
-                  </div>
-                </button>
-                <button id="skip-forward" class="flex">
-                  <img src="./assets/bi_skip-forward.svg" />
-                </button>
+      <footer class="flex flex-row justify-around pt-4 z-10">
+        <div id="playerwrapper" class="flex w-full justify-evenly items-center">
+          <audio id="audio">
+            <source
+              id="audioSource"
+              src="./assets/02 (Varoom!).mp3"
+              type="audio/mpeg"
+            />
+          </audio>
+          <input
+            id="Seekbar"
+            type="range"
+            min="0"
+            value="0"
+            step="1"
+            disabled
+            class="hidden"
+          />
+          <button id="skip-back" class="flex">
+            <img src="./assets/bi_skip-back.svg" />
+          </button>
+          <!-- PLAY / PAUSE -->
+          <button id="play" class="flex">
+            <div id="switchButtons">
+              <img src="./assets/Vector.svg" />
+              <img src="./assets/carbon_pause-filled.svg" class="hidden" />
             </div>
-        </footer>
-      </div>
-</body>
+          </button>
+          <button id="skip-forward" class="flex">
+            <img src="./assets/bi_skip-forward.svg" />
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
