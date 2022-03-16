@@ -1,60 +1,78 @@
 import axios from "axios";
 window.addEventListener("load", async (id) => {
-  let trackID: number;
+  let Track;
   try {
-    trackID = await axios.get(`http://localhost:3000/songs/${id}`);
+    Track = await axios.get(`http://localhost:3000/songs/${id}`);
   } catch (error) {
     console.error(error);
   }
 
+  // access object and get id + path
+  let trackID: number = Track.id;
+  let Path = Track.dirPath;
+  let nextTrack: number = trackID + 1;
+  let prevTrack: number = trackID - 1;
+
+  // basics for "starting" a track
   let currentTrack = document.createElement("audio") as HTMLAudioElement;
   let isPlaying = false;
-  let nextTrack = trackID + 1;
-  let prevTrack = trackID - 1;
 
-  function loadTrack(trackID) {
-    currentTrack.src = trackID;
+  function loadTrack(trackID: number) {
+    // get ID from addeventlisteners on albums / tracks etc.
+    // take ID and get path
+    currentTrack.src = Path;
     currentTrack.load();
+    currentTrack.addEventListener("ended", playNext());
   }
 
-  // audioSource.src = audioFile;
+  // grabbing elements
   var PlayButton = document.getElementById("play") as HTMLElement;
   var SkipBack = document.getElementById("skip-back") as HTMLElement;
   var SkipForward = document.getElementById("skip-forward") as HTMLElement;
   var PauseIcon = document.getElementById("pause-icon") as HTMLElement;
   var PlayIcon = document.getElementById("play-icon") as HTMLElement;
-  // Make Playbutton work
 
+  // Playbutton
   PlayButton.addEventListener("click", () => {
-    // let audioSource = document.getElementById("audioSource") as HTMLElement;
-    // audioSource.setAttribute("src", currentSong);
-    if (audio.paused) {
-      audio.play();
+    if (isPlaying) {
+      currentTrack.play();
+      isPlaying = true;
       PlayIcon.classList.toggle("hidden");
       PauseIcon.classList.remove("hidden");
     } else {
-      audio.pause();
+      currentTrack.pause();
+      isPlaying = false;
       PlayIcon.classList.remove("hidden");
       PauseIcon.classList.toggle("hidden");
     }
   });
 
-  // Simon probably has to add a way to "move" one song forward
+  // Next track
+  function playNext() {
+    if (trackID < 43) {
+      trackID = nextTrack;
+    } else {
+      trackID = 1;
+    }
+    loadTrack(trackID);
+    Track.play();
+  }
+
+  // Prev track
+  function playPrev() {
+    trackID = prevTrack;
+    loadTrack(trackID);
+    Track.play();
+  }
+
+  // Skip Forward
   SkipForward.addEventListener("click", () => {
-    let audioSource = document.getElementById("audioSource") as HTMLElement;
-    // audio.pause();
-    audio.load();
-    audio.play();
+    playNext();
   });
 
-  // Simon probably has to find a way to "move" one song backwards :>
+  // Skip Back
   SkipBack.addEventListener("click", () => {
-    let audioSource = document.getElementById(
-      "audioSource"
-    ) as HTMLAudioElement;
-    audioSource.src = previousSong;
-    audio.load();
-    audio.play();
+    playPrev();
   });
 
   // grab the time and stick it to the width of new div
