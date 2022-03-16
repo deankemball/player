@@ -29,6 +29,13 @@
         min-height: 40vw;
         align-self: start;
     }
+    .feed {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(3rem);
+    translate-y: 3rem;
+    padding-bottom: 4rem;
+    overflow-y: scroll;
   }
-
+}
 
